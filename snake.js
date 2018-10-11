@@ -7,23 +7,77 @@ var context = canvas.getContext('2d');
 
 var x = 300;
 var y = 200;
+var width = 10;
+var height = 10;
 
-function DrawSnake (x, y, width, height) {
+var snakeArray = [];
+
+class DrawSnake {
+    constructor(x, y, width, height) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
-        context.beginPath();
-        context.fillRect(this.x, this.y, this.width, this.height);
-        context.stroke();
-        
+            this.width = width;
+            this.height = height;
+			context.beginPath();
+            context.fillRect(this.x, this.y, this.width, this.height);                context.stroke();
+        }
+
+        moveLeft() {
+            this.x -= 10
+            context.beginPath();
+            context.fillRect(this.x, this.y, this.width, this.height);
+            context.stroke();
+		}
+		
+		moveRight() {
+			this.x += 10
+            context.beginPath();
+            context.fillRect(this.x, this.y, this.width, this.height);
+            context.stroke();
+		}
+
+		moveUp() {
+			this.y -= 10
+            context.beginPath();
+            context.fillRect(this.x, this.y, this.width, this.height);
+            context.stroke();
+		}
+
+		moveDown() {
+			this.y += 10
+            context.beginPath();
+            context.fillRect(this.x, this.y, this.width, this.height);
+			context.stroke();
+			// context.clearRect(0, 0, innerWidth, innerHeight);
+			snakeArray.push(snakeArray);
+		}
 }
 
-var snake = new DrawSnake(x, y, 10, 10);
-switch(keycode) {
-        case 37:
-        
-}
+var snake = new DrawSnake (x, y, width, height);
+
+document.addEventListener('keydown', function (event){
+    if (event.keyCode === 37) {
+		context.clearRect(0, 0, innerWidth, innerHeight);
+		snake.moveLeft();
+	} else if (event.keyCode === 38) {
+		context.clearRect(0, 0, innerWidth, innerHeight);
+		snake.moveUp();
+	} else if (event.keyCode === 39) {
+		context.clearRect(0, 0, innerWidth, innerHeight);
+		snake.moveRight();
+	} else if (event.keyCode === 40) {
+		context.clearRect(0, 0, innerWidth, innerHeight);
+		snake.moveDown();
+	}
+})
+
+
+
+// var snake = new DrawSnake(x, y, 10, 10);
+// switch(keycode) {
+//         case 37:
+
+// }
 
 
 // function animate() {
