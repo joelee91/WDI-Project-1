@@ -10,23 +10,23 @@ var y = 200;
 var width = 10;
 var height = 10;
 
-var snakeArray = [];
 
 class DrawSnake {
     constructor(x, y, width, height) {
         this.x = x;
         this.y = y;
-            this.width = width;
-            this.height = height;
-			context.beginPath();
-            context.fillRect(this.x, this.y, this.width, this.height);                context.stroke();
+        this.width = width;
+        this.height = height;
+		context.beginPath();
+		context.fillRect(this.x, this.y, this.width, this.height);                
+		context.stroke();
         }
 
         moveLeft() {
             this.x -= 10
             context.beginPath();
             context.fillRect(this.x, this.y, this.width, this.height);
-            context.stroke();
+			context.stroke();
 		}
 		
 		moveRight() {
@@ -48,17 +48,17 @@ class DrawSnake {
             context.beginPath();
             context.fillRect(this.x, this.y, this.width, this.height);
 			context.stroke();
-			// context.clearRect(0, 0, innerWidth, innerHeight);
-			snakeArray.push(snakeArray);
 		}
 }
 
 var snake = new DrawSnake (x, y, width, height);
 
-document.addEventListener('keydown', function (event){
+
+document.addEventListener('keydown', function(event){
     if (event.keyCode === 37) {
 		context.clearRect(0, 0, innerWidth, innerHeight);
 		snake.moveLeft();
+		// animate();
 	} else if (event.keyCode === 38) {
 		context.clearRect(0, 0, innerWidth, innerHeight);
 		snake.moveUp();
@@ -70,6 +70,41 @@ document.addEventListener('keydown', function (event){
 		snake.moveDown();
 	}
 })
+
+class DrawFood {
+	constructor (x, y, radius, beginAngle, endAngle, counterClockWise) {
+		this.x = x;
+		this.y = y;
+		this.radius = radius;
+		this.beginAngle = beginAngle;
+		this.endAngle = endAngle;
+		this.counterClockWise = counterClockWise;
+		context.beginPath();
+		context.arc(this.x, this.y, this.radius, this.beginAngle, this.endAngle, this.counterClockWise)
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+// function animate() {
+// 	requestAnimationFrame(animate);
+// 	var snake = new DrawSnake (x, y, width, height);
+// 	x-=1
+// }
+
+
+
+
 
 
 
