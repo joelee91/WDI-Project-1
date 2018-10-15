@@ -51,6 +51,7 @@ function draw() {
 	tail.shift();
 	}
 }
+
 function game() {
 	console.log(playerX, playerY)
 	draw();
@@ -70,7 +71,9 @@ function game() {
 		console.log('snake')
 		end();
 	}
-	
+	if (length > 20) {
+		end();
+	}
 	apple();
 }
 
