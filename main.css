@@ -1,6 +1,22 @@
-canvas {
-    border: 1px solid black;
+.canvas-container {
+	border: 1px solid black;
+	margin: 0;
+	display: block;
+	padding: 0;
+	position: relative;
+}
+#canvas {
+	position: absolute;
+	background: url(snake.gif)
 }
 body {
-    margin: 0;
+	margin: 0;
+	padding:0;
+	
+}
+#button {
+	position: absolute;
+	left: 45%;
+	top: 45%;
+	font-size: 30px;
 }
